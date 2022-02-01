@@ -1,10 +1,11 @@
-
+language: generic
 sudo: required
+
 services: 
   - docker
 
 before_install:
-  - docker build -t swips/docker-react -f Dockerfile.dev .
+  - docker build -t emirxxx/docker-react -f Dockerfile.dev .
 
   script:
-  - docker run -e CI=true swips/docker-react npm run test -- --coverage
+  - docker run -e CI=true emirxxx/docker-react npm run test -- --coverage
