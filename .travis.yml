@@ -9,3 +9,15 @@ before_install:
 
 script:
   - docker run -e CI=true stephengrider/docker-react npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "travis-test"
+  env: "Travistest-env"
+  bucket_name: "elasticbeanstalk-us-east-1-850751414776"
+  bucket_path: "travis-test"
+  on: 
+    branch: master
+  access_key_id: $access_key_id
+  secret_access_key: $secret_access_key
